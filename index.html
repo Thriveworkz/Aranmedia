@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!doctype html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Aran Media Payroll&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root { --border:#e5e5e5; --muted:#666; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body{font-family:system-ui,Arial,sans-serif;max-width:900px;margin:2rem auto;padding:0 1rem;line-height:1.45}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;gap:.5rem;flex-wrap:wrap}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card{border:1px solid var(--border);border-radius:12px;padding:1rem;margin:.75rem 0;background:#fff}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button{padding:.6rem 1rem;border:1px solid #222;background:#222;color:#fff;border-radius:10px;cursor:pointer}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>input,select{padding:.5rem;border:1px solid var(--border);border-radius:8px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>table{width:100%;border-collapse:collapse;margin-top:.5rem}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>th,td{border:1px solid var(--border);padding:.5rem;text-align:left;font-size:.95rem}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>th{background:#fafafa}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.row{display:flex;gap:1rem;flex-wrap:wrap}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.row &gt; *{flex:1}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.muted{color:var(--muted)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.right{display:flex;gap:.5rem;align-items:center}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1">&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h2&gt;Aran Media – Payroll&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;small class="muted"&gt;Monthly pay • Absence &amp; loans deducted • Bonus ad-hoc • Sundays off&lt;/small&gt;</p>
+<p class="p1">&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;label&gt;Month (YYYY-MM)&lt;/label&gt;&lt;br/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;input id="month" placeholder="2025-09" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="right" style="align-self:flex-end"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button id="previewBtn"&gt;Preview Payroll&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button id="exportBtn" title="Download CSV of payroll preview"&gt;Export CSV&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="payroll"&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h3&gt;Record Attendance&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;&lt;label&gt;Date&lt;/label&gt;&lt;br/&gt;&lt;input id="attDate" type="date" /&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;&lt;label&gt;Emp Code&lt;/label&gt;&lt;br/&gt;&lt;input id="attCode" placeholder="E001" /&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;label&gt;Status&lt;/label&gt;&lt;br/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;select id="attStatus"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="P"&gt;P (Present)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="A"&gt;A (Absent)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;&lt;label&gt;Notes&lt;/label&gt;&lt;br/&gt;&lt;input id="attNotes" placeholder="optional"/&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="align-self:flex-end"&gt;&lt;button id="saveAttBtn"&gt;Save Attendance&lt;/button&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="attMsg" class="muted"&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;&lt;button id="loadEmpBtn"&gt;Load Employees&lt;/button&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="employees"&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">// ---------- CONFIG ----------</p>
+<p class="p1">const WEBAPP = 'https://script.google.com/macros/s/AKfycbwE8l-pbjrUq5DYCt0XlsXn_ehF4ro8VktmX1G4uytlTYLYTKWZbDQTSl4u-3CgxtNJ/exec';</p>
+<p class="p1">const API_KEY = 'ARAN_MEDIA_PAYROLL_2025_SECRET_X9h2Lp7q';</p>
+<p class="p2"><br></p>
+<p class="p1">// ---------- Helpers ----------</p>
+<p class="p1">async function post(action, payload = {}) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const body = JSON.stringify({ apiKey: API_KEY, action, payload });</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const res = await fetch(WEBAPP, {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>method: 'POST',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>headers: { 'Content-Type': 'text/plain' }, // avoid CORS preflight</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const text = await res.text();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>try { return JSON.parse(text); } catch (err) { throw new Error(text); }</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function toCSV(rows) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!rows || !rows.length) return '';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const headers = Object.keys(rows[0]);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const esc = v =&gt; `"${String(v ?? '').replace(/"/g,'""')}"`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const lines = rows.map(r =&gt; headers.map(h =&gt; esc(r[h])).join(','));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return [headers.join(','), ...lines].join('\n');</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function download(name, content, mime='text/csv') {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const blob = new Blob([content], { type: mime });</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const url = URL.createObjectURL(blob);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const a = document.createElement('a');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>a.href = url; a.download = name;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.body.appendChild(a); a.click(); a.remove();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>URL.revokeObjectURL(url);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// ---------- UI Actions ----------</p>
+<p class="p1">document.getElementById('loadEmpBtn').onclick = async function () {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const out = document.getElementById('employees');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>out.innerHTML = 'Loading...';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const r = await post('listEmployees');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (!r.ok) throw new Error(r.error || 'Unknown error');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>out.innerHTML = '&lt;table&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;thead&gt;&lt;tr&gt;&lt;th&gt;EmpCode&lt;/th&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Monthly Salary&lt;/th&gt;&lt;th&gt;DOJ&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;tbody&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>r.employees.map(function(e){</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return '&lt;tr&gt;&lt;td&gt;'+e.EmpCode+'&lt;/td&gt;&lt;td&gt;'+e.Name+'&lt;/td&gt;&lt;td&gt;'+e.MonthlySalary+'&lt;/td&gt;&lt;td&gt;'+(e.DOJ||'')+'&lt;/td&gt;&lt;/tr&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}).join('') +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;/tbody&gt;&lt;/table&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} catch (e) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>out.innerHTML = '&lt;span style="color:red"&gt;'+e.message+'&lt;/span&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">};</p>
+<p class="p2"><br></p>
+<p class="p1">document.getElementById('saveAttBtn').onclick = async function () {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const date = document.getElementById('attDate').value;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const empCode = document.getElementById('attCode').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const status = document.getElementById('attStatus').value;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const notes = document.getElementById('attNotes').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const msg = document.getElementById('attMsg');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>msg.textContent = 'Saving...';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const r = await post('recordAttendance', { date: date, empCode: empCode, status: status, notes: notes });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (!r.ok) throw new Error(r.error || 'Unknown error');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>msg.textContent = 'Saved ✅';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} catch (e) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>msg.innerHTML = '&lt;span style="color:red"&gt;'+e.message+'&lt;/span&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">};</p>
+<p class="p2"><br></p>
+<p class="p1">let lastPayroll = [];</p>
+<p class="p2"><br></p>
+<p class="p1">document.getElementById('previewBtn').onclick = async function () {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const month = document.getElementById('month').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const out = document.getElementById('payroll');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>out.innerHTML = 'Calculating...';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const r = await post('runPayroll', { month: month });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (!r.ok) throw new Error(r.error || 'Unknown error');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const rows = r.payroll || [];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>lastPayroll = rows;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const total = rows.reduce(function(s, x){ return s + Number(x.netPay || 0); }, 0);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (!rows.length) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>out.innerHTML = '&lt;span class="muted"&gt;No employees or no data for this month.&lt;/span&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>out.innerHTML =</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;table&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;thead&gt;&lt;tr&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;th&gt;Emp&lt;/th&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Working&lt;/th&gt;&lt;th&gt;Present&lt;/th&gt;&lt;th&gt;Absent&lt;/th&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;th&gt;Per-Day&lt;/th&gt;&lt;th&gt;Gross&lt;/th&gt;&lt;th&gt;Attn Deduction&lt;/th&gt;&lt;th&gt;Loan&lt;/th&gt;&lt;th&gt;Bonus&lt;/th&gt;&lt;th&gt;Net&lt;/th&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;/tr&gt;&lt;/thead&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;tbody&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>rows.map(function(x){</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return '&lt;tr&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">          </span>'&lt;td&gt;'+x.EmpCode+'&lt;/td&gt;&lt;td&gt;'+x.Name+'&lt;/td&gt;&lt;td&gt;'+x.workingDays+'&lt;/td&gt;&lt;td&gt;'+x.presentDays+'&lt;/td&gt;&lt;td&gt;'+x.absentDays+'&lt;/td&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">          </span>'&lt;td&gt;'+x.perDay+'&lt;/td&gt;&lt;td&gt;'+x.gross+'&lt;/td&gt;&lt;td&gt;'+x.attendanceDeduction+'&lt;/td&gt;&lt;td&gt;'+x.loanRecovery+'&lt;/td&gt;&lt;td&gt;'+x.bonus+'&lt;/td&gt;&lt;td&gt;&lt;strong&gt;'+x.netPay+'&lt;/strong&gt;&lt;/td&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">        </span>'&lt;/tr&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}).join('') +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;/tbody&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;tfoot&gt;&lt;tr&gt;&lt;th colspan="10" style="text-align:right"&gt;Total Net&lt;/th&gt;&lt;th&gt;'+Math.round(total*100)/100+'&lt;/th&gt;&lt;/tr&gt;&lt;/tfoot&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;/table&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} catch (e) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>out.innerHTML = '&lt;span style="color:red"&gt;'+e.message+'&lt;/span&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">};</p>
+<p class="p2"><br></p>
+<p class="p1">document.getElementById('exportBtn').onclick = function () {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!lastPayroll.length) { alert('Run Preview Payroll first.'); return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const month = document.getElementById('month').value.trim() || 'payroll';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>download('aran_payroll_'+month+'.csv', toCSV(lastPayroll));</p>
+<p class="p1">};</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
